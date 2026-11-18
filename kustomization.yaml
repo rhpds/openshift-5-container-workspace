@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Module 2: complete, independent National Parks stack.
+# Argo CD supplies the student's -gitops namespace as the destination, so no
+# namespace is set here. MongoDB credentials are generated in-cluster by the
+# bootstrap Job and are never stored in this public repository.
+resources:
+  - national-parks-gitops-info.yaml
+  - 00-mongodb-credentials.yaml
+  - 01-mongodb.yaml
+  - 02-nationalparks-backend.yaml
+  - 03-parksmap-discovery.yaml
+  - 04-parksmap-frontend.yaml
+  - 05-park-data-bootstrap.yaml

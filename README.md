@@ -8,19 +8,20 @@ whatever you commit.
 
 | Path | Used by | Purpose |
 | --- | --- | --- |
-| `kustomization.yaml` | Module 2 | Entry point for the full National Parks stack |
-| `national-parks-gitops-info.yaml` | Module 2, 3 | ConfigMap edited to watch a sync |
-| `00-mongodb-credentials.yaml` | Module 2 | One-time Job that creates the MongoDB Secret |
-| `01-mongodb.yaml` | Module 2 | MongoDB 8 Deployment and correct Service |
-| `02-nationalparks-backend.yaml` | Module 2 | Python backend ImageStream, BuildConfig, Service, Route |
-| `03-parksmap-discovery.yaml` | Module 2 | ParksMap ServiceAccount, Role and RoleBinding |
-| `04-parksmap-frontend.yaml` | Module 2, 3 | ParksMap Deployment (Module 3 breaks its readiness port) |
-| `05-park-data-bootstrap.yaml` | Module 2 | PostSync Job that seeds the park dataset |
+| `national-parks/` | Module 2, 3 | Complete National Parks stack |
+| `national-parks/kustomization.yaml` | Module 2 | Entry point for the stack |
+| `national-parks/national-parks-gitops-info.yaml` | Module 2, 3 | ConfigMap edited to watch a sync |
+| `national-parks/00-mongodb-credentials.yaml` | Module 2 | One-time Job that creates the MongoDB Secret |
+| `national-parks/01-mongodb.yaml` | Module 2 | MongoDB 8 Deployment and correct Service |
+| `national-parks/02-nationalparks-backend.yaml` | Module 2 | Python backend ImageStream, BuildConfig, Service, Route |
+| `national-parks/03-parksmap-discovery.yaml` | Module 2 | ParksMap ServiceAccount, Role and RoleBinding |
+| `national-parks/04-parksmap-frontend.yaml` | Module 2, 3 | ParksMap Deployment (Module 3 breaks its readiness port) |
+| `national-parks/05-park-data-bootstrap.yaml` | Module 2 | PostSync Job that seeds the park dataset |
 | `weathernow/` | Module 4, 5 | Lightweight WeatherNow Kustomization and manifest |
 
 ## Argo CD paths
 
-- National Parks Application: path `.`
+- National Parks Application: path `national-parks`
 - WeatherNow Application: path `weathernow`
 
 Never commit passwords or generated Secrets. The MongoDB credentials Job

@@ -18,11 +18,22 @@ whatever you commit.
 | `national-parks/04-parksmap-frontend.yaml` | Module 2, 3 | ParksMap Deployment (Module 3 breaks its readiness port) |
 | `national-parks/05-park-data-bootstrap.yaml` | Module 2 | PostSync Job that seeds the park dataset |
 | `weathernow/` | Module 4, 5 | Lightweight WeatherNow Kustomization and manifest |
+| `scripts/` | Module 3, 4 | Helper scripts the lab instructions download and run |
 
 ## Argo CD paths
 
 - National Parks Application: path `national-parks`
 - WeatherNow Application: path `weathernow`
+
+## Helper scripts
+
+The workshop downloads these from `raw/main/scripts/` rather than from the
+lab documentation repository, so they always match this workspace:
+
+- `scripts/prepare-module03-baseline.sh` — restores the healthy Module 2/3
+  baseline in your own namespaces.
+- `scripts/setup-weathernow-gitops.sh` — adds the WeatherNow source and its
+  Argo CD Application once, before Module 4.
 
 Never commit passwords or generated Secrets. The MongoDB credentials Job
 creates them inside the cluster namespace.

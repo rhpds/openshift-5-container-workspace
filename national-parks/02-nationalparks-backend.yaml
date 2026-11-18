@@ -98,7 +98,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
     # OpenShift replaces the container image when nationalparks:latest is built.
     # Set ignoreDifferences + RespectIgnoreDifferences on the Argo CD Application
-    # (see module02-fullstack-application.yaml) to avoid auto-selfHeal conflicts.
+    # (see national-parks-application-example.yaml) to avoid auto-selfHeal conflicts.
     image.openshift.io/triggers: >-
       [{"from":{"kind":"ImageStreamTag","name":"nationalparks:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"nationalparks\")].image","paused":false}]
 spec:
